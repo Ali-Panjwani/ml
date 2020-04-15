@@ -15,6 +15,7 @@ y = dataset.iloc[:, -1].values
 imputer = SimpleImputer(missing_values = np.nan, strategy = 'mean')
 X[:, 1:3] = imputer.fit_transform(X[:, 1:3])
 
+# Taking Care of catagorical data
 # Encoding Independent Variables
 ct = ColumnTransformer(transformers = [('encoder', OneHotEncoder(), [0])], remainder = 'passthrough')
 X = np.array(ct.fit_transform(X))
